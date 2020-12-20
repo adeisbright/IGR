@@ -1,0 +1,11 @@
+include includes/header.pug
+block content
+    link(rel="stylesheet", href="/stylesheets/dashboard.css")
+    body
+        div(class="container mt-5")
+            div(class="text-center")
+                div(class="admin-box")
+                    div(class="error mx-auto" data-text="404") 404
+                    p(class="lead text-gray-800 mb-3") Page Not Found
+                    p(class="text-gray-800 mb-0") It looks like you are not in the right path...
+                    a(href="/" class="btn") &larr; Back To Home

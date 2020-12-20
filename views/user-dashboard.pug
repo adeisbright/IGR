@@ -1,0 +1,207 @@
+include includes/head.pug
+block content
+    body
+        .loader-bg
+            .loader-track
+                .loader-fill
+        include includes/sidenav.pug
+        include includes/nav.pug
+        .pcoded-main-container
+            .pcoded-wrapper
+                .pcoded-content
+                    .pcoded-inner-content
+                        .main-body
+                            .page-wrapper
+                                .page-header
+                                    .page-block
+                                        .row.align-items-center
+                                            .col-md-12
+                                                .page-header-title
+                                                    h5 Dashboard
+                                .row
+                                    // product profit start
+                                    .col-xl-3.col-md-6
+                                        .card.prod-p-card.bg-c-red
+                                            .card-body
+                                                .row.align-items-center.m-b-25
+                                                    .col
+                                                        h6.m-b-5.text-white Total Stats
+                                                        h3.m-b-0.text-white 1,783
+                                                    .col-auto
+                                                        i.fas.fa-money-bill-alt.text-c-red.f-18
+                                                p.m-b-0.text-white
+                                                    span.label.label-danger.m-r-10 +11%
+                                                    | From Previous Month
+                                    .col-xl-3.col-md-6
+                                        .card.prod-p-card.bg-c-blue
+                                            .card-body
+                                                .row.align-items-center.m-b-25
+                                                    .col
+                                                        h6.m-b-5.text-white Total Stats
+                                                        h3.m-b-0.text-white 1,783
+                                                    .col-auto
+                                                        i.fas.fa-money-bill-alt.text-c-blue.f-18
+                                                p.m-b-0.text-white
+                                                    span.label.label-primary.m-r-10 +11%
+                                                    | From Previous Month
+                                    .col-xl-3.col-md-6
+                                        .card.prod-p-card.bg-c-green
+                                            .card-body
+                                                .row.align-items-center.m-b-25
+                                                    .col
+                                                        h6.m-b-5.text-white Total Stats
+                                                        h3.m-b-0.text-white 1,783
+                                                    .col-auto
+                                                        i.fas.fa-money-bill-alt.text-c-green.f-18
+                                                p.m-b-0.text-white
+                                                    span.label.label-success.m-r-10 +11%
+                                                    | From Previous Month
+                                    .col-xl-3.col-md-6
+                                        .card.prod-p-card.bg-c-yellow
+                                            .card-body
+                                                .row.align-items-center.m-b-25
+                                                    .col
+                                                        h6.m-b-5.text-white Total Stats
+                                                        h3.m-b-0.text-white 1,783
+                                                    .col-auto
+                                                        i.fas.fa-money-bill-alt.text-c-yellow.f-18
+                                                p.m-b-0.text-white
+                                                    span.label.label-warning.m-r-10 +11%
+                                                    | From Previous Month
+
+                                    .col-md-6
+                                        .card.table-card
+                                            .card-header
+                                                h5 Invoices
+                                            .card-body.px-0.py-0
+                                                .table-responsive
+                                                    div(class="session-scroll" style="height:478px;position:relative;")
+                                                        table(class="table table-hover m-b-0")
+                                                            thead
+                                                                tr
+                                                                    th #
+                                                                    th Date
+                                                                    th Invoice No
+                                                                    th Description
+                                                                    th Amount
+                                                                    th Status
+                                                                    th Operations
+                                                            tbody
+                                                                tr
+                                                                    td 1
+                                                                    td 20/12/2020
+                                                                    td 128490489
+                                                                    td This is an example
+                                                                    td 50,000
+                                                                    td Verified
+                                                                    td Example being carried out.
+                                                                tr
+                                                                    td 1
+                                                                    td 20/12/2020
+                                                                    td 128490489
+                                                                    td This is an example
+                                                                    td 50,000
+                                                                    td Verified
+                                                                    td Example being carried out.
+                                                                tr
+                                                                    td 1
+                                                                    td 20/12/2020
+                                                                    td 128490489
+                                                                    td This is an example
+                                                                    td 50,000
+                                                                    td Verified
+                                                                    td Example being carried out.
+                                                                tr
+                                                                    td 1
+                                                                    td 20/12/2020
+                                                                    td 128490489
+                                                                    td This is an example
+                                                                    td 50,000
+                                                                    td Verified
+                                                                    td Example being carried out.
+                                                                tr
+                                                                    td 1
+                                                                    td 20/12/2020
+                                                                    td 128490489
+                                                                    td This is an example
+                                                                    td 50,000
+                                                                    td Verified
+                                                                    td Example being carried out.
+                                                                tr
+                                                                    td 1
+                                                                    td 20/12/2020
+                                                                    td 128490489
+                                                                    td This is an example
+                                                                    td 50,000
+                                                                    td Verified
+                                                                    td Example being carried out.
+                                                            
+                                    .col-md-6
+                                        .card.table-card
+                                            .card-header
+                                                h5 Withholdings
+                                            .card-body.px-0.py-0
+                                                .table-responsive
+                                                    div(class="session-scroll" style="height:478px;position:relative;")
+                                                        table(class="table table-hover m-b-0")
+                                                            thead
+                                                                tr
+                                                                    th #
+                                                                    th Date
+                                                                    th Invoice No
+                                                                    th Description
+                                                                    th Amount
+                                                                    th Status
+                                                                    th Operations
+                                                            tbody
+                                                                tr
+                                                                    td 1
+                                                                    td 20/12/2020
+                                                                    td 128490489
+                                                                    td This is an example
+                                                                    td 50,000
+                                                                    td Verified
+                                                                    td Example being carried out.
+                                                                tr
+                                                                    td 1
+                                                                    td 20/12/2020
+                                                                    td 128490489
+                                                                    td This is an example
+                                                                    td 50,000
+                                                                    td Verified
+                                                                    td Example being carried out.
+                                                                tr
+                                                                    td 1
+                                                                    td 20/12/2020
+                                                                    td 128490489
+                                                                    td This is an example
+                                                                    td 50,000
+                                                                    td Verified
+                                                                    td Example being carried out.
+                                                                tr
+                                                                    td 1
+                                                                    td 20/12/2020
+                                                                    td 128490489
+                                                                    td This is an example
+                                                                    td 50,000
+                                                                    td Verified
+                                                                    td Example being carried out.
+                                                                tr
+                                                                    td 1
+                                                                    td 20/12/2020
+                                                                    td 128490489
+                                                                    td This is an example
+                                                                    td 50,000
+                                                                    td Verified
+                                                                    td Example being carried out.
+                                                                tr
+                                                                    td 1
+                                                                    td 20/12/2020
+                                                                    td 128490489
+                                                                    td This is an example
+                                                                    td 50,000
+                                                                    td Verified
+                                                                    td Example being carried out.
+
+                                                        
+        include includes/footer.pug

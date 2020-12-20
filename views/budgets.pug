@@ -1,0 +1,135 @@
+include includes/head.pug
+block content
+    body
+        .loader-bg
+            .loader-track
+                .loader-fill
+        include includes/sidenav.pug
+        include includes/nav.pug
+        .pcoded-main-container
+            .pcoded-wrapper
+                .pcoded-content
+                    .pcoded-inner-content
+                        .main-body
+                            .page-wrapper
+                                p #[a(href="#" data-toggle="modal" data-target="#addAccount" class="btn btn-primary") #[i.feather.icon-plus] New]
+                                div(class="modal fade" id="addAccount" role="dialog" aria-hidden="true")
+                                    div(class="modal-dialog" role="document")
+                                        div(class="modal-content")
+                                            div(class="modal-header")
+                                                h5 Budget
+                                                button(class="close" type="button" data-dismiss="modal" aria-label="Close")
+                                                    span(aria-hidden="true") ×
+                                            div(class="modal-body")
+                                                form(method="post")
+                                                    label(for="Revenue Head") Revenue Head 
+                                                    select(name="revenue-head"  class="form-control mb-3" id="revenueHead") 
+                                                        option(value="" selected disabled="disabled") Select
+                                                        if revenueHeads.length > 0 
+                                                            each revenueHead in revenueHeads 
+                                                                option(value=revenueHead._id) #{revenueHead.accountName}
+                                                    label(for="Year") Year 
+                                                    select(name="year" class="form-control mb-3" id="year") 
+                                                        option(disabled="disabled" selected value="") Select
+                                                        option(value="2020") 2020
+                                                    label(for="Total Budget") Total Budget 
+                                                    input(name="totalBudget" class="form-control mb-3" id="totalBudget") 
+                                                    .table-responsive
+                                                        table.table.table-striped
+                                                            thead 
+                                                                th Month 
+                                                                th Budget (Naira) 
+                                                                th Actual 
+                                                                th Variance 
+                                                            tbody
+                                                                tr 
+                                                                    td January 
+                                                                    td 
+                                                                        input(type="text" class="form-control budgetAmount" name="budgetAmount" id="jan")
+                                                                    td  
+                                                                    td(class="variance" )
+                                                                tr 
+                                                                    td February
+                                                                    td 
+                                                                        input(type="text" name="budgetAmount" class="form-control budgetAmount" id="feb")
+                                                                    td  
+                                                                    td(class="variance" )
+                                                                tr 
+                                                                    td March
+                                                                    td 
+                                                                        input(type="text" name="budgetAmount" class="form-control budgetAmount" id="mar")
+                                                                    td  
+                                                                    td(class="variance" )
+                                                                tr 
+                                                                    td April 
+                                                                    td 
+                                                                        input(type="text" name="budgetAmount" class="form-control budgetAmount" id="april")
+                                                                    td  
+                                                                    td(class="variance" )
+                                                                tr 
+                                                                    td May 
+                                                                    td 
+                                                                        input(type="text" name="budgetAmount" class="form-control budgetAmount" id="may")
+                                                                    td  
+                                                                    td(class="variance" )
+                                                                tr 
+                                                                    td June
+                                                                    td 
+                                                                        input(type="text" name="budgetAmount" class="form-control budgetAmount" id="june")
+                                                                    td  
+                                                                    td(class="variance" ) 
+                                                                tr 
+                                                                    td July
+                                                                    td 
+                                                                        input(type="text" name="budgetAmount" class="form-control budgetAmount" id="july")
+                                                                    td  
+                                                                    td(class="variance" )
+                                                                tr 
+                                                                    td August
+                                                                    td 
+                                                                        input(type="text" name="budgetAmount" class="form-control budgetAmount" id="aug")
+                                                                    td  
+                                                                    td(class="variance" )
+                                                                tr 
+                                                                    td September 
+                                                                    td 
+                                                                        input(type="text" name="budgetAmount" class="form-control budgetAmount" id="sep")
+                                                                    td  
+                                                                    td(class="variance" )
+                                                                tr 
+                                                                    td October 
+                                                                    td 
+                                                                        input(type="text" name="budgetAmount" class="form-control budgetAmount" id="oct")
+                                                                    td  
+                                                                    td(class="variance" ) 
+                                                                tr 
+                                                                    td November 
+                                                                    td 
+                                                                        input(type="text" name="budgetAmount" class="form-control budgetAmount" id="nov")
+                                                                    td  
+                                                                    td(class="variance" ) 
+                                                                tr 
+                                                                    td December 
+                                                                    td 
+                                                                        input(type="text" name="budgetAmount" class="form-control budgetAmount" id="dec")
+                                                                    td  
+                                                                    td(class="variance" ) 
+                                                                tr
+                                                                    td Total 
+                                                                    td 
+                                                                        input(type="text" class="form-control budgetAmount" id="totalCell" )
+                                                                    td 
+                                                                    td 
+                                                    div(class="text-center")
+                                                        button(type="button" id="distribute" class="btn btn-primary mr-2") Distribute 
+                                                        button(type="button" id="save" class="btn btn-info mr-2") Save 
+                                                        button(type="refresh" id="refresh" class="btn btn-success") Reset 
+                                .row
+                                    .col-sm-12
+                                        .card
+                                            .card-header
+                                                h5 Budgets
+                                            .card-body
+                                                
+        script(src="/javascripts/budget.js" type="module")                                      
+        include includes/footer.pug

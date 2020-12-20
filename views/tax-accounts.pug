@@ -1,0 +1,73 @@
+include includes/head.pug
+block content
+    body
+        .loader-bg
+            .loader-track
+                .loader-fill
+        include includes/sidenav.pug
+        include includes/nav.pug
+        .pcoded-main-container
+            .pcoded-wrapper
+                .pcoded-content
+                    .pcoded-inner-content
+                        .main-body
+                            .page-wrapper
+                                
+                                p #[a(href="#" data-toggle="modal" data-target="#addAccount" class="btn btn-primary") #[i.feather.icon-plus] New Account]
+                                div(class="modal fade" id="addAccount" role="dialog" aria-hidden="true")
+                                    div(class="modal-dialog" role="document")
+                                        div(class="modal-content")
+                                            div(class="modal-header")
+                                                h5 Create a new account
+                                                button(class="close" type="button" data-dismiss="modal" aria-label="Close")
+                                                    span(aria-hidden="true") ×
+                                            div(class="modal-body")
+                                                form(method="post")
+                                                    label Ledger
+                                                    select(class="form-control mb-3" name="ledgerCode" required)
+                                                        option(value="" selected disabled="disabled") -----
+                                                        each ledger in ledgers 
+                                                            option(value=ledger.ledgerCode) #{ledger.ledgerName} 
+                                                    label(for="category name") Account Name 
+                                                    input(type="text" class="form-control mb-3" name="accountName" id="accountName" required) 
+                                                    label(for="category name") Account Number
+                                                    input(type="text" class="form-control mb-3" name="accountNumber" id="accountNumber" required) 
+                                                    label(for="category name") Opening Balance  
+                                                    input(type="text" class="form-control mb-3" name="openingBalance" id="openingBalance" required)    
+                                                    div(class="text-center")
+                                                        input(type="submit", value="Proceed" class="btn btn-primary")
+                                .row
+                                    .col-sm-12
+                                        .card
+                                            .card-header
+                                                h5 Accounts
+                                            .card-body.table-border-style
+                                                if ledgers.length === 0
+                                                    h6 Procedures
+                                                    ul
+                                                        li Setup an account type for the account you want to create if there is none . Go #[a(href="/setup/account-ledger") here ]  
+                                                        li Click on  the plus icon at the bottom left to create new account 
+                                                        li(style="color:#f00") Your account types will popup during account creation once you create them.
+                                                    hr
+                                                if accounts.length === 0 
+                                                    p #[b You have no account. Go ahead to create one.] 
+                                                else
+                                                    .table-responsive
+                                                        table.table.table-striped
+                                                            thead
+                                                                th S/N 
+                                                                th.left-text Account Name 
+                                                                th Account Number 
+                                                                //th Account Type 
+                                                                th Available Balance (&dollar;)
+                                                            tbody 
+                                                                each account  , i in accounts  
+                                                                    -let balance = Number(account.availableBalance ) > 0 ? account.availableBalance : 0
+                                                                    tr 
+                                                                        td #{i + 1}
+                                                                        td.left-text #{account.accountName} 
+                                                                        td #{account.accountNumber} 
+                                                                        
+                                                                        td #{balance}
+
+        include includes/footer.pug

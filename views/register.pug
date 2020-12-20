@@ -1,0 +1,122 @@
+include includes/head.pug
+block content
+    body
+        div(class="auth-wrapper")
+            div(class="auth-content container")
+                div(class="card")
+                    div(class="row align-items-center")
+                        div(class="col-md-6")
+                            form
+                                div(class="card-body")
+                                    p.logo #[a(href="/") IGR]
+                                    h6(class="mb-3 f-w-400") Create an account or #[a(href="/login" class="f-w-400") Log in] if you have one.
+                                    ul(class="nav nav-tabs" id="myTab" role="tablist")
+                                        li(class="nav-item")
+                                            a(class="nav-link active" id="first-tab" data-toggle="tab" href="#first" role="tab" aria-controls="first" aria-selected="true") Taxpayer Details
+                                        li(class="nav-item")
+                                            a(class="nav-link" id="second-tab" data-toggle="tab" href="#second" role="tab" aria-controls="second" aria-selected="true") Other Details
+                                        li(class="nav-item")
+                                            a(class="nav-link" id="third-tab" data-toggle="tab" href="#third" role="tab" aria-controls="third" aria-selected="true") Login Details
+                                    div(class="tab-content" id="myTabContent")
+                                        div(class="tab-pane fade show active" id="first" role="tabpanel" aria-labelledby="first-tab")
+                                            div(class="input-group mb-2")
+                                                div(class="input-group-prepend")
+                                                    span(class="input-group-text")
+                                                        i(class="feather icon-user")
+                                                input(type="text" class="form-control" placeholder="Your name on document" id="individualName")
+                                            div(class="input-group mb-2")
+                                                div(class="input-group-prepend")
+                                                    span(class="input-group-text")
+                                                        i(class="feather icon-mail")
+                                                input(type="email" class="form-control" placeholder="Contact Email" id="individualContactEmail")
+                                            div(class="input-group mb-2")
+                                                div(class="input-group-prepend")
+                                                    span(class="input-group-text")
+                                                        i(class="feather icon-phone")
+                                                input(type="phone" class="form-control" placeholder="Phone Number" id="individualPhone") 
+                                            div(class="input-group mb-2")
+                                                div(class="input-group-prepend")
+                                                    span(class="input-group-text")
+                                                        i(class="feather icon-sunset")
+                                                select(class="form-control" id="street") 
+                                                    option(disabled value="" selected) Select your street
+                                                    if streets.length > 0 
+                                                        each street in streets 
+                                                            option(value=street._id) #{street.name}  
+                                            div(class="input-group mb-2")
+                                                div(class="input-group-prepend")
+                                                    span(class="input-group-text")
+                                                        i(class="feather icon-award")
+                                                input(type="number" class="form-control" placeholder="House Number" id="houseNumber")               
+                                            div(class="input-group mb-3")
+                                                div(class="input-group-prepend")
+                                                    span(class="input-group-text")
+                                                        i(class="feather icon-sunset")
+                                                select(class="form-control" id="individualOffice") 
+                                                    option(disabled value="" selected) Select IGR office near you
+                                                    if lgas.length > 0 
+                                                        each lga in lgas  
+                                                            option(value=lga._id) #{lga.name}  
+                                            button(class="btn btn-sm btn-outline-info" id="first-btn") Next #[i(class="feather icon-arrow-right") ]
+                                        div(class="tab-pane fade" id="second" role="tabpanel" aria-labelledby="second-tab")
+                                            div(class="input-group mb-2")
+                                                div(class="input-group-prepend")
+                                                    span(class="input-group-text")
+                                                        i(class="feather icon-credit-card")
+                                                select(class="form-control" id="individualIdentity") 
+                                                    option(disabled value="null" selected) Select a means of identification
+                                                    option(value="nin") NIN 
+                                                    option(value="Ip") International Passport 
+                                                    option(value="voters card") Voters Card 
+                                                    option(value="drivers license") Drivers License 
+                                                    option(value="bvn") BVN 
+                                            div(class="input-group mb-3")
+                                                div(class="input-group-prepend")
+                                                    span(class="input-group-text")
+                                                        i(class="feather icon-book")
+                                                input(type="text" class="form-control" placeholder="ID Number" id="identityNumber")
+                                            div(class="input-group mb-3")
+                                                div(class="input-group-prepend")
+                                                    span(class="input-group-text")
+                                                        i(class="feather icon-info")
+                                                input(type="text" class="form-control" id="userIncomeSource" placeholder="Main source of income")
+                                            hr
+                                            div(class="d-flex justify-content-between")
+                                                button(class="btn btn-sm btn-outline-info" id="second-btn-prev") #[i(class="feather icon-arrow-left") ] Previous
+                                                button(class="btn btn-sm btn-outline-info" id="second-btn-next") Next #[i(class="feather icon-arrow-right") ]
+                                        div(class="tab-pane fade" id="third" role="tabpanel" aria-labelledby="third-tab")
+                                            div(class="input-group mb-2")
+                                                div(class="input-group-prepend")
+                                                    span(class="input-group-text")
+                                                        i(class="feather icon-user")
+                                                input(type="text" class="form-control" placeholder="Username" id="userName") 
+                                            div(class="input-group mb-2")
+                                                div(class="input-group-prepend")
+                                                    span(class="input-group-text")
+                                                        i(class="feather icon-mail")
+                                                input(type="email" class="form-control" placeholder="Email address" id="userEmail") 
+                                            div(class="input-group mb-2")
+                                                div(class="input-group-prepend")
+                                                    span(class="input-group-text")
+                                                        i(class="feather icon-lock")
+                                                input(input type="password" class="form-control" placeholder="Password" id="userPassword")
+                                            div(class="input-group mb-2")
+                                                div(class="input-group-prepend")
+                                                    span(class="input-group-text")
+                                                        i(class="feather icon-lock")
+                                                input(input type="password" class="form-control" placeholder="Confirm Password" id="confirmPassword")
+                                            
+                                            div(class="form-group text-left mt-2")
+                                                div(class="checkbox checkbox-primary d-inline")
+                                                    input(type="checkbox" name="checkbox-fill-2" id="checkbox-fill-2")
+                                                    label(for="checkbox-fill-2" class="cr") I accept all the #[a(href="#") terms and conditions ].
+                                            button(class="btn btn-primary mb-4" id="userSubmit") Sign Up
+                                            p #[button(class="btn btn-sm btn-outline-info" id="third-btn") #[i(class="feather icon-arrow-left") ] Previous]
+                                        .alert.d-none
+                                    
+                        div(class="col-md-6 d-none d-md-block")
+                            img(src="/assets/images/auth-bg.jpg" alt="Auth Login Image" class="img-fluid")
+        
+        script(src="/javascripts/tab.js" type="module")
+        script(src="/javascripts/register.js" type="module")
+        include includes/footer.pug

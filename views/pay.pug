@@ -1,0 +1,51 @@
+include includes/head.pug
+block content
+    script(src="https://unpkg.com/read-excel-file@4.x/bundle/read-excel-file.min.js")
+    body
+        .loader-bg
+            .loader-track
+                .loader-fill
+        include includes/sidenav.pug
+        include includes/nav.pug
+        .pcoded-main-container
+            .pcoded-wrapper
+                .pcoded-content
+                    .pcoded-inner-content
+                        .main-body
+                            .page-wrapper
+                                .row
+                                    .col-sm-12
+                                        .card
+                                            .card-header
+                                                h5 Payment Management
+                                            .card-body
+                                                .row
+                                                    .col-md-6.mb-3
+                                                        form(method="POST" id="chargeForm" class="form-field")
+                                                            label(for="Tax Payer") TIN
+                                                            select(class="form-control mb-3" name="payersNumber" id="payersNumber") 
+                                                                option(value="" selected disabled="disabled") [Enter TIN]
+                                                                if payers.length > 0 
+                                                                    each payer in payers 
+                                                                        option(value=payer._id) #{payer.tin} 
+                                                            label(for="Tax Payer") Payers Name 
+                                                            input(class="form-control mb-3" name="payerName" id="payerName") 
+                                                            label(for="Application") Bank 
+                                                            select(class="form-control mb-3" name="revenue" id="revenue")  
+                                                                option(value="" selected disabled="disabled") [Select a bank]
+                                                                if accounts.length > 0 
+                                                                    each account in accounts 
+                                                                        option(value=account._id) #{account.accountName} 
+                    
+                                                            label(for="amount") Amount Paid
+                                                            input(type="text" class="form-control mb-3" name="amount" id="amount") 
+                                                            label(for="balance") Balance
+                                                            input(type="text" class="form-control mb-3" name="balance" id="balance") 
+                                                            .text-center
+                                                                input(type="submit" class="btn btn-primary" id="save" value="Proceed to pay")  
+                                                            div(style="padding-right:3rem;display:none")#chargeBalance 
+                                                                p Good 
+                      
+        
+        script(src="/javascripts/taxpayment.js" type="module")                                    
+        include includes/footer.pug

@@ -1,0 +1,59 @@
+include includes/head.pug
+block content
+    body
+        .loader-bg
+            .loader-track
+                .loader-fill
+        include includes/sidenav.pug
+        include includes/nav.pug
+        .pcoded-main-container
+            .pcoded-wrapper
+                .pcoded-content
+                    .pcoded-inner-content
+                        .main-body
+                            .page-wrapper
+                                if streets.length > 0 && payers.length > 0 && properties.length > 0
+                                    p #[a(href="#" data-toggle="modal" data-target="#addAccount" class="btn btn-primary") #[i.feather.icon-plus] New]
+                                    div(class="modal fade" id="addAccount" role="dialog" aria-hidden="true")
+                                        div(class="modal-dialog" role="document")
+                                            div(class="modal-content")
+                                                div(class="modal-header")
+                                                    h5 Tax on Premise Generation
+                                                    button(class="close" type="button" data-dismiss="modal" aria-label="Close")
+                                                        span(aria-hidden="true") ×
+                                                div(class="modal-body")
+                                                    form(method="post")
+                                                        label(for="property") Owner
+                                                        select(class="form-control mb-3" name="type" id="type" required) 
+                                                            option(value="" disabled="disabled" selected) -----
+                                                            each payer in payers 
+                                                                - let name = payer.firstName ? `${payer.firstName}` : payer.email 
+                                                                option(value=payer._id) #{name}
+                                                        label(for="description") Property
+                                                        select( class="form-control mb-3" name="description" required)
+                                                            option(value="" disabled="disabled" selected) -----
+                                                            each property in properties
+                                                                option(value=property._id) #{property.name}
+                                                        label(for="value") Property Value 
+                                                        input(type="text" class="form-control mb-3" name="rate" required) 
+                                                        label(for="category name") Property Number
+                                                        input(type="text" class="form-control mb-3" name="name" required)
+                                                        label(for="category name") Street
+                                                        select( class="form-control mb-3" name="name" required)
+                                                            option(value="" disabled="disabled" selected) -----
+                                                            each street in streets
+                                                                option(value=street._id) #{street.name}
+                                                        div(class="text-center")
+                                                            input(type="submit", value="Proceed" class="btn btn-primary")
+                                .row
+                                    .col-sm-12
+                                        .card
+                                            .card-header
+                                                h5 Premise
+                                            .card-body
+                                                if streets.length > 0 && payers.length > 0 && properties.length > 0
+                                                    p Something apears here.
+                                                else
+                                                    p You need to create streets and users.
+                                                
+        include includes/footer.pug

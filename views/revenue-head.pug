@@ -1,0 +1,60 @@
+include includes/head.pug
+block content
+    body
+        .loader-bg
+            .loader-track
+                .loader-fill
+        include includes/sidenav.pug
+        include includes/nav.pug
+        .pcoded-main-container
+            .pcoded-wrapper
+                .pcoded-content
+                    .pcoded-inner-content
+                        .main-body
+                            .page-wrapper
+                                p #[a(href="#" data-toggle="modal" data-target="#addAccount" class="btn btn-primary") #[i.feather.icon-plus] New]
+                                div(class="modal fade" id="addAccount" role="dialog" aria-hidden="true")
+                                    div(class="modal-dialog" role="document")
+                                        div(class="modal-content")
+                                            div(class="modal-header")
+                                                h5 Create a new revenue head
+                                                button(class="close" type="button" data-dismiss="modal" aria-label="Close")
+                                                    span(aria-hidden="true") ×
+                                            div(class="modal-body")
+                                                form(method="post")
+                                                    label(for="category name") Name
+                                                    input(type="text" class="form-control mb-3" name="name" id="name" required) 
+                                                    label(for="category name") GL Account 
+                                                    select(class="form-control mb-3" name="account" required)
+                                                        option(value="" disabled="disabled" selected) Select one
+                                                        if accounts.length > 0 
+                                                            each account in accounts 
+                                                                option(value=account._id) #{account.accountName} 
+                                                    div(class="text-center")
+                                                        input(type="submit", value="Proceed" class="btn btn-primary")
+                                .row
+                                    .col-sm-12
+                                        .card
+                                            .card-header
+                                                h5 Revenue Head
+                                            .card-body
+                                                if revenues.length === 0 
+                                                    h6 Go ahead to create revenues
+                                                else 
+                                                    .table-responsive
+                                                        table.table.table-striped
+                                                            thead 
+                                                                tr 
+                                                                    th S/N 
+                                                                    th Name 
+                                                                    th Account 
+                                                                    th Balance
+                                                            tbody 
+                                                                each revenue , i in revenues 
+                                                                    - let balance = accounts[i].availableBalance ? accounts[i].availableBalance : 0
+                                                                    tr 
+                                                                        td #{i + 1}
+                                                                        td #{revenue.name} 
+                                                                        td #{accounts[i].accountName} 
+                                                                        td #{balance} 
+        include includes/footer.pug

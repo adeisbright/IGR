@@ -1,0 +1,79 @@
+block content
+    nav.pcoded-navbar.menupos-fixed.menu-light
+        .navbar-wrapper
+            .navbar-brand.header-logo
+                a.b-brand(href='')
+                    span.logo IGR
+                a#mobile-collapse.mobile-menu(href='javascript:')
+                    span
+            .navbar-content.scroll-div
+                ul.nav.pcoded-inner-navbar
+                    if admin
+                        li.nav-item.pcoded-menu-caption
+                            label Basic
+                        li(class=`nav-item ${dash_active}`)
+                            a.nav-link(href='/admin/dashboard')
+                                span.pcoded-micon
+                                    i.feather.icon-home
+                                span.pcoded-mtext Dashboard
+                        li.nav-item.pcoded-menu-caption
+                            label Settings
+                        li(class=`nav-item pcoded-hasmenu ${setup_active} ${opensetup_active}`)
+                            a.nav-link(href='javascript:')
+                                span.pcoded-micon
+                                    i.feather.icon-settings
+                                span.pcoded-mtext Setup
+                            ul.pcoded-submenu
+                                li(class=account_active)
+                                    a(href='/setup/accounts') Accounts
+                                li(class=tax_active)
+                                    a(href='/setup/taxes') Tax Types
+                                li(class=revenue_active)
+                                    a(href='/setup/revenue-head') Revenue Head
+                                li(class=premise_active)
+                                    a(href='/setup/premise') Premise
+                                li(class=lga_active)
+                                    a(href='/setup/lgas') LGAS
+                                li(class=location_active)
+                                    a(href='/setup/locations') Location
+                                li(class=street_active)
+                                    a(href='/setup/streets') Street
+                                li(class=properties_active)
+                                    a(href='/setup/properties') Properties
+                        li.nav-item.pcoded-menu-caption
+                            label Others
+                        li(class=`nav-item ${budget_active}`)
+                            a.nav-link(href='/budgets')
+                                span.pcoded-micon
+                                    .feather.icon-layers
+                                span.pcoded-mtext Budget
+                        li(class=`nav-item ${charges_active}`)
+                            a.nav-link(href='/revenue/charges')
+                                span.pcoded-micon
+                                    i.feather.icon-clipboard
+                                span.pcoded-mtext Charge
+                        li(class=`nav-item ${charges_active}`)
+                            a.nav-link(href='/payments')
+                                span.pcoded-micon
+                                    i.feather.icon-credit-card
+                                span.pcoded-mtext Payment
+                    if user
+                        li.nav-item.pcoded-menu-caption
+                            label Basic
+                        li(class=`nav-item ${dash_active}`)
+                            a.nav-link(href='/dashboard')
+                                span.pcoded-micon
+                                    i.feather.icon-home
+                                span.pcoded-mtext Dashboard
+                        li.nav-item.pcoded-menu-caption
+                            label Others
+                        li(class=`nav-item ${filing_active}`)
+                            a.nav-link(href='#')
+                                span.pcoded-micon
+                                    i.feather.icon-file
+                                span.pcoded-mtext Filing
+                        li(class=`nav-item ${tcc_active}`)
+                            a.nav-link(href='#')
+                                span.pcoded-micon
+                                    i.feather.icon-clipboard
+                                span.pcoded-mtext TCC Appication

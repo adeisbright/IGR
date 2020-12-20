@@ -1,0 +1,41 @@
+header 
+  section(class="full-frame bg-dull header") 
+    div.framer 
+      div.frame.justify-content-between 
+        div(class="d-md-hide m-r-1" style="padding-top:.45rem")
+            a(href="#" class="brand" style="font-size:1.4rem!important;") e-igr
+        //div.d-md-hide(style="padding-top:.45rem") 
+            a(class="search" href="#") 
+              i.fa.fa-search(style="font-size:1rem")
+        div(class="d-md-hide search-and-toggle" style="padding-top:.45rem") 
+          button(class="mobile-toggler relative change-toggle" id="mobile-toggler") 
+            span 
+            span 
+            span 
+        section(class="mobile-navigations d-md-hide d-nothing out-of-view")
+          a(href="#" class="") Taxes
+          a(href="/calculator" class="") Calculator
+          a(href="#" class="") TIN
+          a(href="#" class="") News   
+          a(href="/login" class="") Login   
+          a(href="/register" class="no-border center-text no-outline white-text bg-red radius-5 button shadow") Get Started   
+        div.d-sm-hide
+          a(class="brand" href="/") e-igr  
+           
+        nav.d-sm-hide.md-nav(style="padding-top:.5rem") 
+          section.has-dropdown 
+            a(href="/calculator" class="") Taxes #[i.fa.fa-caret-down]
+            div.is-drop-content 
+              a(href="#")  Revenue Items 
+              a(href="#")  Collecting Banks 
+              a(href="#")  Verify TCC 
+              a(href="#")  Request TCC
+          a(href="/calculator" class="") Calculator 
+          section(class="has-dropdown")
+            a(href="#" class="") TIN #[i.fa.fa-caret-down] 
+            div.is-drop-content 
+              a(href="https://tinverification.jtb.gov.ng/Template/TINVerification" target="_blank") Individual Registration 
+              a(href="https://tin.jtb.gov.ng/TinRequestExternal" target="_blank") Corporate Registration 
+          a(href="#" class="") News  
+          a(href="/login" class="") Login 
+          a(href="/register" class="") Get Started  

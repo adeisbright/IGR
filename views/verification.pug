@@ -1,0 +1,16 @@
+include includes/head.pug
+block content
+    body
+        div(class="auth-wrapper offline")
+            div(class="text-center")
+                h4(class="mb-4") Welcome!
+                h5(class="text-muted mb-4") Your registration was successful.
+                h6(class="text-muted mb-4") Check your email for a confirmation message. Follow the guidelines.
+                p #[a(href="/" class="text-white btn btn-primary mb-4") #[i.feather.icon-home] Back to Home]
+        div(class="footer-fab")
+            div(class="b-bg")
+                i(class="feather icon-link")
+            div(class="fab-hover")
+                ul(class="list-unstyled")
+                    li #[a(href="/login"  data-text="Login Page" class="btn btn-icon btn-rounded btn-info m-0") #[i(class="feather icon-log-in")] ]
+                    li #[a(href="/register"  data-text="Registration Page" class="btn btn-icon btn-rounded btn-info m-0") #[i(class="feather icon-log-out")] ]

@@ -1,0 +1,34 @@
+include includes/head.pug
+block content
+    body
+        div(class="auth-wrapper")
+            div(class="auth-content container")
+                div(class="card")
+                    div(class="row align-items-center")
+                        div(class="col-md-6")
+                            form(method="POST")
+                                div(class="card-body")
+                                    p.logo #[a(href="/") IGR]
+                                    h6(class="mb-3 f-w-400") Log In to your account
+                                    div(class="input-group mb-2")
+                                        div(class="input-group-prepend")
+                                            span(class="input-group-text")
+                                                i(class="feather icon-mail")
+                                        input(type="email" class="form-control" placeholder="Email address" id="email") 
+                                    div(class="input-group mb-3")
+                                        div(class="input-group-prepend")
+                                            span(class="input-group-text")
+                                                i(class="feather icon-lock")
+                                        input(input type="password" autocomplete="false" class="form-control" placeholder="Password" id="password")
+                                    div(class="form-group text-left mt-2")
+                                        div(class="checkbox checkbox-primary d-inline")
+                                            input(type="checkbox" name="checkbox-fill-2" id="checkbox-fill-2")
+                                            label(for="checkbox-fill-2" class="cr") Remember Me.
+                                    .alert.d-none
+                                    button(class="btn btn-primary mb-4" type="submit" id="submit") Log In
+                                    p(class="mb-2 text-muted") Forgot password? #[a(href="#" class="f-w-400") Reset ]
+                                    p(class="mb-0 text-muted") Don’t have an account? #[a(href="/register" class="f-w-400") Signup]
+                        div(class="col-md-6 d-none d-md-block")
+                            img(src="/assets/images/auth-bg.jpg" alt="Auth Login Image" class="img-fluid")
+        
+        script(src="/javascripts/login.js" type="module")

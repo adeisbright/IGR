@@ -1,0 +1,93 @@
+include includes/head.pug
+block content
+    script(src="https://unpkg.com/read-excel-file@4.x/bundle/read-excel-file.min.js")
+    body
+        .loader-bg
+            .loader-track
+                .loader-fill
+        include includes/sidenav.pug
+        include includes/nav.pug
+        .pcoded-main-container
+            .pcoded-wrapper
+                .pcoded-content
+                    .pcoded-inner-content
+                        .main-body
+                            .page-wrapper
+                                .row
+                                    .col-sm-12
+                                        .card
+                                            .card-header
+                                                h5 Charges
+                                            .card-body
+                                                if charges.length > 0
+                                                    .table-responsive
+                                                            table.table.table-striped
+                                                                thead 
+                                                                    tr 
+                                                                        th S/N 
+                                                                        th Payee 
+                                                                        th Description 
+                                                                        th Amount 
+                                                                        th From 
+                                                                        th To 
+                                                                tbody 
+                                                                    each charge  , i in charges 
+                                                                        tr 
+                                                                            td #{i + 1} 
+                                                                            td #{charge.payer.name}
+                                                                            td payment 
+                                                                            td #{charge.amount} 
+                                                                            td #{charge.from} 
+                                                                            td #{charge.to}
+                                                else
+                                                    p You haven't created any.
+                                                p #[a(class="btn btn-info m-t-5" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample") Create Charges]
+                                                div(class="collapse" id="collapseExample")
+                                                    hr
+                                                    .row
+                                                        .col-md-6.mb-3
+                                                            form(method="POST" id="chargeForm" class="form-field")
+                                                                .row
+                                                                    .col-md-6.mb-3
+                                                                        label(for="Application") Revenue Head 
+                                                                        select(class="form-control field" name="revenue" id="revenue") 
+                                                                            option(value="" disabled="disabled" selected) Select
+                                                                            if revenues.length > 0 
+                                                                                each revenue in revenues 
+                                                                                    option(value=revenue._id) #{revenue.name}
+                                                                    .col-md-6.mb-3
+                                                                        label(for="Tax Payer") Payers Name 
+                                                                        select(class="form-control field" name="payerName" id="payerName") 
+                                                                            option(value="" disabled="disabled" selected) Select
+                                                                            if payers.length > 0 
+                                                                                each payer in payers 
+                                                                                    option(value=payer._id) #{payer.name}
+                                                                    .col-md-6.mb-3
+                                                                        label(for="Application") From  
+                                                                        input( class="form-control field" type="date" name="from" id="from")
+                                                                    .col-md-6.mb-3
+                                                                        label(for="Application") To  
+                                                                        input( class="form-control field" type="date" name="to" id="to")
+                                                                    .col-md-12.mb-3
+                                                                        label(for="Application") Amount
+                                                                        input(type="text" class="form-control field" name="amount" id="amount")
+                    
+                                                                    .col-md-12.text-center.mb-3
+                                                                        //button(class="btn btn-danger") Close
+                                                                        button(class="btn btn-primary" type="submit" id="save") Save 
+                                                                        //button(class="btn btn-success"  id="upload") Import
+                                                                        //a(href="https://flutterwave.com/pay/royalchurchministriesk8wx") Flutter 
+                                                                        //a(href="https://paystack.com/pay/royalchoiceministries") Paystack
+                                                                        //button(class="button no-border no-outline white-text bg-dark") Reset  
+
+                                                        .col-md-6.mb-3
+                                                            form(class="form-horizontal"  method="post" action="") 
+                                                                h6 Or upload from an excel sheet. 
+                                                                label(class="btn-file mt-4") #[i(class="feather icon-upload pr-2")] Select File
+                                                                    input(type="file" id="file" name="file")
+                                                        .col-md-12
+                                                            div#app 
+        
+        script(src="/javascripts/charges.js" type="module") 
+        script(src="/javascripts/import-excel.js" type="module")                                      
+        include includes/footer.pug

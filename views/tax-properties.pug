@@ -1,0 +1,41 @@
+include includes/head.pug
+block content
+    body
+        .loader-bg
+            .loader-track
+                .loader-fill
+        include includes/sidenav.pug
+        include includes/nav.pug
+        .pcoded-main-container
+            .pcoded-wrapper
+                .pcoded-content
+                    .pcoded-inner-content
+                        .main-body
+                            .page-wrapper
+                                p #[a(href="#" data-toggle="modal" data-target="#addAccount" class="btn btn-primary") #[i.feather.icon-plus] New]
+                                div(class="modal fade" id="addAccount" role="dialog" aria-hidden="true")
+                                    div(class="modal-dialog" role="document")
+                                        div(class="modal-content")
+                                            div(class="modal-header")
+                                                h5 Create a property type
+                                                button(class="close" type="button" data-dismiss="modal" aria-label="Close")
+                                                    span(aria-hidden="true") ×
+                                            div(class="modal-body")
+                                                form(method="post")
+                                                    label(for="property") Type
+                                                    input(type="text" class="form-control mb-3" name="type" id="type" required) 
+                                                    label(for="description") Description
+                                                    input(type="text" class="form-control mb-3" name="description" required)
+                                                    label(for="value") Value (%) 
+                                                    input(type="text" class="form-control mb-3" name="rate" required)
+                                                    div(class="text-center")
+                                                        input(type="submit", value="Proceed" class="btn btn-primary")
+                                .row
+                                    .col-sm-12
+                                        .card
+                                            .card-header
+                                                h5 Tax Properties
+                                            .card-body
+                                                
+                                                
+        include includes/footer.pug

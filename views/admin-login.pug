@@ -1,0 +1,37 @@
+include includes/head.pug
+block content
+    body
+        div(class="auth-wrapper")
+            div(class="auth-content container")
+                div(class="card")
+                    div(class="row align-items-center")
+                        div(class="col-md-6")
+                            form(method="POST")
+                                div(class="card-body")
+                                    p.logo #[a(href="/") IGR]
+                                    h6(class="mb-3 f-w-400") Welcome back Admin!
+                                    div(class="input-group mb-2")
+                                        div(class="input-group-prepend")
+                                            span(class="input-group-text")
+                                                i(class="feather icon-mail")
+                                        input(type="email" class="form-control" placeholder="Email address" name="email" id="email") 
+                                    div(class="input-group mb-3")
+                                        div(class="input-group-prepend")
+                                            span(class="input-group-text")
+                                                i(class="feather icon-lock")
+                                        input(input type="password" autocomplete="false" class="form-control" name="password" placeholder="Password" id="password")
+                                    div(class="form-group text-left mt-2")
+                                        div(class="checkbox checkbox-primary d-inline")
+                                            input(type="checkbox" name="checkbox-fill-2" id="checkbox-fill-2")
+                                            label(for="checkbox-fill-2" class="cr") Remember Me.
+                                    if error
+                                        .alert.alert-danger.alert-dismissible.fade-in(role="alert")
+                                            button.close(type="button" data-dismiss="alert" aria-label="close")
+                                                span(aria-hidden="true") ×
+                                            span #{error}
+                                            
+                                    button(class="btn btn-primary mb-4" type="submit" id="submit") Log In
+                                    
+                        div(class="col-md-6 d-none d-md-block")
+                            img(src="/assets/images/auth-bg.jpg" alt="Auth Login Image" class="img-fluid")
+        
